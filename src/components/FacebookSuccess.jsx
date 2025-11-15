@@ -12,15 +12,17 @@ export default function FacebookSuccess() {
 
   useEffect(() => {
     console.log("Facebook Login Success:", { id, name, email, picture });
-
-  }, []);
+  }, [id, name, email, picture]);
 
   return (
     <div>
       <h1>Login Successful</h1>
       <p>Name: {name}</p>
       <p>Email: {email}</p>
-      <img src={picture} alt="profile" />
+
+      {picture && (
+        <img src={picture} alt="profile" style={{ width: "150px", borderRadius: "50%" }} />
+      )}
     </div>
   );
 }
